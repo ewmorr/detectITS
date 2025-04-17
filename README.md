@@ -71,7 +71,7 @@ vsearch --usearch_global all_seqs.derep.fa \
 ```
 remove plants and metazoa from tab (saves time) and then search for rows with at least one non-zero value
 ```
-time grep -v "k__Fungi" all_seqs.otu_tab.tsv | 
+grep -e "^#" -e "k__Fungi" all_seqs.otu_tab.tsv | 
     sed "s/#OTU ID/#OTUID/" | 
     perl -n -e 'print if(/^#/ || /\w+.*?\t.*[1-9].*/)' > all_seqs.otu_tab.hits.tsv
 wc -l all_seqs.otu_tab.hits.tsv
