@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --ntasks=1
 #SBATCH --job-name="itsxpress"
-#SBATCH --output=dada2_workflow.itsxpress.out
+#SBATCH --output=ots_map.out
 #SBATCH --partition=shared
 #SBATCH --cpus-per-task=24
 
