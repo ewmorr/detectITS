@@ -26,12 +26,13 @@ do(
     
     vsearch --fastq_mergepairs $dir/$r1File \
         --reverse $dir/$r2File \
-        --threads 4 \
+        --threads 24 \
         --fastaout $outdir/${sample_id}.merged.fasta
 
     vsearch --derep_fulllength $outdir/${sample_id}.merged.fasta \
         --sizeout \
         --relabel $sample_id. \
+        --threads 24 \
         --output $outdir/${sample_id}.derep.fasta
 
     sed -i '' "s/^>.*/&;sample=${sample_id};/g" $outdir/${sample_id}.derep.fasta
@@ -46,6 +47,7 @@ vsearch --usearch_global $outdir/all_seqs.fa \
     --db $db \
     --sizein \
     --id 0.985 \
+    --threads 24 \
     --blast6out $outdir/all_seqs.blast6.tsv \
     --otutabout $outdir/all_seqs.otu_tab.tsv
 
