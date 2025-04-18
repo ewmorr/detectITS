@@ -11,7 +11,7 @@ cd ~/repo/detectITS/data
 ```
 Merge quality filtered and ITS extracted sequences with vsearch and dereplicate.
 ```
-outdir=its_merged
+outdir=itsx_merged
 mkdir $outdir
 
 for i in itsxpress_out/*R1*
@@ -30,7 +30,7 @@ done
 ```
 Derpelicate sequences with cluster size output, and also label sequences with sample IDs
 ```
-indir=its_merged
+indir=itsx_merged
 outdir=merged_derep
 mkdir $outdir
 
@@ -94,7 +94,7 @@ Use `vsearch --usearch_global` mapping to construct otutab
 See https://www.drive5.com/usearch/manual/blast6out.html for an explanation of the columns in blast6out format (this gives the alignment statistics)
 
 ```
-db=~/blast_dbs/sh_general_release_dynamic_07252023/sh_general_allEuk_dynamic_singletons_25072023.ITS2.SPP_OF_CONCERN_CORRECTIONS.fasta
+db=~/blast_dbs/unite_07252023/sh_general_allEuk_dynamic_singletons_25072023.ITS2.SPP_OF_CONCERN_CORRECTIONS.fasta
 less $db
 
 vsearch --usearch_global all_seqs.derep.fa \
